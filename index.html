@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Website</title>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.Cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="istockphoto-2148178474-170667a.webp" type="image/x-icon">
+    
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+
+      .navbar {
+        background-color: #001f3f !important; /* Navy Blue */
+        color: white;
+        padding: 10px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+      .navbar a {
+        color: white;
+        text-align: left;
+        justify-items: flex-end;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+      /* .fade-in{
+        opacity: 5;
+        transition: 2s;
+      }
+      .fade-in.visible{
+        opacity: 0;
+        transition: 2s;
+      } */
+      
+
+      .navbar a {
+        position: relative;
+        color: #fff !important;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+      }
+      .navbar a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        display: block;
+        margin-top: 5px;
+        right: 0;
+        background: #fff;
+        color: aliceblue !important;
+        transition: width 0.3s ease, right 0.3s ease;
+      }
+      .navbar a:hover::after {
+        width: 100%;
+        right: 0;
+        color: #fff;
+      }
+
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-image: url("istockphoto-2148178474-170667a.webp");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding-bottom: 200px;
+      }
+      #aboutus{
+        background-image: url("pexels-photo-114907.jpeg");
+        background-size: cover;
+        color: black;
+        font-family: "tahoma";
+        font-weight: bolder;
+        font-size: larger;
+
+      }
+      #aboutus #overlay1{
+        background-color: rgba(17, 17, 36, 0.5);
+        z-index: 1;
+      }
+
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background-color: rgba(15, 15, 15, 0.842); /* Navy Blue with 50% opacity */
+        z-index: 1;
+      }
+
+      /* #aboutus .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background-color: rgba(0, 0, 139, 0.5); /* Navy Blue with 50% opacity */
+        /* z-index: 1;
+      } */ */
+
+      
+
+      .hero .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+      }
+      
+
+      .services {
+        padding: 60px 20px;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      
+      .service h3:hover{
+        
+        
+        color: #cf8b8b;
+      }
+      .service p{
+        font-family: "tahoma";
+        color: black;
+        font-weight: bold;
+      }
+
+      .services h2 {
+        margin-bottom: 40px;
+      }
+      
+
+      .service {
+        margin-bottom: 20px;
+      }
+
+      .contact {
+        padding: 60px 20px;
+        background-color: #fff;
+        text-align: center;
+      }
+
+      .contact form {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .contact label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+
+      .contact input,
+      .contact textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      #hiddenText{
+        display: none;
+      }
+
+      .contact button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #001f3f; /* Navy Blue */
+        color: white;
+        cursor: pointer;
+      }
+
+      footer {
+        background-color: #001f3f; /* Navy Blue */
+        color: white;
+        text-align: center;
+        padding: 10px 20px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+      .img1 img {
+        max-width: 20%;
+        border-radius: 50%;
+      }
+
+      @media (max-width:768px) {
+            .hero{
+                width: 100%;
+            }
+            .navbar-toggler{
+                background-color: rgb(9, 9, 241);
+                border: 5px solid white;
+                margin-left: 90% !important;
+                border-radius: 20px;
+            }
+            .navbar-nav{
+              background-color:#001f3f !important;
+            }
+            #mu{
+              width: 100vw;
+              padding-right: 200px;
+              padding-top: 250px;
+              display: none;
+            }
+            .hero-content{
+              font-size: 12px;
+              padding-bottom: 200px;
+            }
+            .n1 h1{
+              margin-bottom: 50px;
+            }
+            #me{
+              font-size: 25px !important;
+              text-align: center !important;
+              
+              
+            }
+            
+        }
+        #about-us {
+        padding: 50px;
+        background-image: url(Snapchat-1670701109.jpg);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+        background-repeat: no-repeat;
+        align-items: center;
+        background-color: #0d0d0e;
+        color: #fff;
+        
+      }
+      
+
+
+      #about-us.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <div class="img1">
+            <img src="istockphoto-2148178474-170667a.webp" />
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#"><h6>HOME</h6></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about-us"><h6>ABOUT US</h6></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services"><h6>SERVICES</h6></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact"><h6>CONTACT</h6></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://web.facebook.com/profile.php?id=100087666980034"><i class="bi bi-facebook"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""><i class="bi bi-whatsapp"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""><i class="bi bi-twitter"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""><i class="bi bi-instagram"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""><i class="bi bi-linkedin"></i></a>
+              </li>
+
+
+
+
+
+              <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="home" class="hero" >
+      <div class="overlay">
+       
+        <div class="hero-content" style="display: flex; justify-content: space-between; overflow: hidden;">
+            <div class="n1"><h1 style="font-size: 50px; margin-top: 200px; margin-bottom: 200px; padding-left: 50px;" id="me">GOODLUCK WEB  <br><br> Your Premier Destination <br>For All Virtual Top-Up <br> (VTU) services.</h1></div>
+            <div class="n2"><img src="blu-removebg-preview.png" alt="" style="margin-top: 100px;" id="mu"></div>
+            
+        </div>
+      </div>
+      
+    </section>
+
+    <section id="services" class="services">
+      <h2 id="service">Our Services</h2>
+        <div class="service">
+         <h3 >Service 1</h3>
+        <p >We deliver professional and reliable services to our clients.</p> 
+    </div>
+        
+      <div class="service">
+        <h3>Service 2</h3>
+        <p>
+          provide specialized technology-oriented solutions by combining the
+          processes and functions of software, <br> hardware, <br> networks, <br>
+          telecommunications and electronics.
+        </p>
+      </div>
+      <div class="service">
+        <h3 class="animate__heartBeat "data-animate-offset="10"  data-animate-iteration="10">Service 3</h3>
+        <p>Cloud Services. <br>
+            Backup & Disaster Recovery. <br>
+            Network & Security. <br>
+            Help Desk Support.  <br>
+            Managed Print Services. <br>
+            Computer Training. <br>
+            IT Consulting.</p>
+      </div>
+    
+     </section> 
+    <!-- abit us -->
+            <!-- <section id="aboutus" class="animate__ fadeIn">
+
+                <div id="overlay1">
+               
+                <h1 class="animate__heartBeat" style="background-color: #001f3f; color: #fff; text-align: center;">ABOUT US</h1>
+                <P style="text-align: center;"><span style="font-size: larger; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black; font-weight: bolder;">GOODLUCK</span><span style="color: rgb(66, 66, 226); font-weight: bolder; font-size: larger;">WEB</Span> <br><br>- Your Premier Destination For All Virtual Top-Up (VTU) services. <br><br><br><br>
+                    Whether it’s mobile top-ups, data subscriptions, utility bill payments, TV cable subscriptions, airtime to cash conversion, or online result checking, we’ve got you covered. Experience fast, reliable, and affordable services designed to simplify your life.
+                    
+                    </P>
+                <div class="pro" style="display: flex; align-items: center; margin-left: 1%; justify-content: space-between;">
+            
+                    <div class="p"><img src="p.jfif" alt="" style="border-radius: 50%;"><h2>MANAGER</h2></div>
+                    <div class="r"><img src="r.jfif" alt="" style="border-radius: 50%;"><h2>VICE-PRESIDENT</h2></div>
+                    <div class="o"><img src="o.jfif" alt="" style="border-radius: 50%;"><h2>PRESIDENT</h2></div>
+                </div>
+            </div>
+
+            </section> -->
+            <section id="about-us" class="hidden">
+                <div id="overlay3">
+                <h1 style="text-transform: uppercase; color: #1e89f3;">About Us</h1>
+                <p style="font-size: 30px; color: #0a0ae4;">
+                  We are a dedicated team of professionals committed to delivering
+                  high-quality products and services to our clients. Our mission is
+                  to innovate and lead in our industry, ensuring customer
+                  satisfaction at every step.
+                </p>
+                
+                <div class="p"><img src="p.jfif" alt="" style="border-radius: 50%;"><h2 style="color: #bfc4c9; font-weight: bolder;">MANAGER</h2></div>
+                <div class="r"><img src="r.jfif" alt="" style="border-radius: 50%;"><h2 style="color: #d3d8dd; font-weight: bolder;">VICE-PRESIDENT</h2></div>
+                <div class="o"><img src="o.jfif" alt="" style="border-radius: 50%;"><h2 style="color: #c7d1db; font-weight: bolder;">PRESIDENT</h2></div>
+            </div>
+              </section>
+    <!-- about us -->
+
+    <section id="contact" class="contact">
+      <h2 class="animate__heartBeat" style="background-color: #001f3f; color: #fff;"> CONTACT US</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+
+      <div class="c"  >
+        <ul style="display: flex; margin-left: 45%; padding: 21px;">
+          <li class="nav-item" style="text-decoration: none;">
+            <a class="nav-link" href=""><i class="bi bi-whatsapp"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=""><i class="bi bi-twitter"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=""><i class="bi bi-instagram"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=""><i class="bi bi-linkedin"></i></a>
+          </li>
+        </ul>
+        </div>
+
+    </section>
+
+
+      <!-- Element to contain animated typing -->
+  
+</body>
+
+    <footer>
+      <p>&copy; 2024 Goodluck Web. All rights reserved.</p>
+    </footer>
+    
+        <script src="js/wow.min.js"></script>
+              <script>
+              new WOW().init();
+
+
+
+            //   Function to reset animation classes
+        
+
+
+
+
+            
+        // document.addEventListener("DOMContentLoaded",function(){
+        //     const fadeIns = document.querySelectorAll("fade-in");
+
+        //     function checkVisibility(){
+        //         fadeIns.forEach(fadeIn =>{
+        //             const rect = fadeIn.getBoundingClientRect();
+        //             if(rect.top<window.innerHeight && rect.bottom>=0){
+        //                 fadeIn.classList.add("visible");
+        //             }else{
+        //                 fadeIn.classList.remove("visible");
+        //             }
+        //         });
+        //     }
+        //     window.addEventListener("scroll", checkVisibility);
+        //     checkVisibility();
+        // })
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const aboutUsSection = document.getElementById("about-us");
+  
+          function onScroll() {
+            const sectionTop = aboutUsSection.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
+  
+            if (sectionTop < viewportHeight) {
+              aboutUsSection.classList.add("visible");
+              window.removeEventListener("scroll", onScroll);
+            }
+          }
+  
+          window.addEventListener("scroll", onScroll);
+          onScroll(); // Check if the section is already in view on page load
+        });
+
+
+      </script>
+
+
+
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/wow/1.1.2/wow.min.js">
+
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
